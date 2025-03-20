@@ -1,0 +1,13 @@
+@using InfraredConfigurator.Entities
+@model ProxyConfig
+
+<div class="content shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+    <h1>Delete the proxyconfig '@Model.Name'?</h1>
+
+    <form asp-action="ConfirmDelete" method="post">
+        <input type="hidden" asp-for="Id" />
+        
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+</div>

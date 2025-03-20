@@ -1,0 +1,5 @@
+/bin
+/Database.db
+/database.db-shm
+/database.db-wal
+/obj

@@ -1,0 +1,36 @@
+@using InfraredConfigurator.Entities
+@model IEnumerable<Domain>
+
+@{
+    ViewData["Title"] = "Domain configuration";
+}
+
+<div class="text-center shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+    <h1 class="display-4">Domain config</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Domain</th>
+                <th>
+                    <a asp-action="Edit" class="btn btn-success">Create new</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var domain in Model)
+            {
+                <tr>
+                    <td>@domain.Id</td>
+                    <td>@domain.Name</td>
+                    <td>@domain.DomainString</td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-info me-2" asp-route-id="@domain.Id">Edit</a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@domain.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

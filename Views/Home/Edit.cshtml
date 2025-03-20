@@ -1,0 +1,64 @@
+@using InfraredConfigurator.Entities
+@model ProxyConfig
+
+<div class="content shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+    <h1>Edit proxyconfig</h1>
+    <form asp-action="EditSubmit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group pb-2">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="ServerId"></label>
+            <select asp-for="ServerId" class="form-control">
+                @foreach(var server in ViewBag.Servers?? new List<Server>())
+                {
+                    <option value="@server.Id">@server.Name</option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="ServerId"></span>
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="Port"></label>
+            <input asp-for="Port" class="form-control" />
+            <span class="text-danger" asp-validation-for="Port"></span>
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="SubDomain"></label>
+            <input asp-for="SubDomain" class="form-control" />
+            <span class="text-danger" asp-validation-for="SubDomain"></span>
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="DomainId"></label>
+            <select asp-for="DomainId" class="form-control">
+                @foreach(var domain in ViewBag.Domains?? new List<Domain>())
+                {
+                    <option value="@domain.Id">@domain.Name <small>[@domain.DomainString]</small></option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="DomainId"></span>
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="SendProxyProtocol"></label>
+            <input type="checkbox" asp-for="SendProxyProtocol" class="form-control" />
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="DisconnectMessage"></label>
+            <input asp-for="DisconnectMessage" class="form-control" />
+            <span class="text-danger" asp-validation-for="DisconnectMessage"></span>
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="OnlineStatus"></label>
+            <input asp-for="OnlineStatus" class="form-control" />
+            <span class="text-danger" asp-validation-for="OnlineStatus"></span>
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="OfflineStatus"></label>
+            <input asp-for="OfflineStatus" class="form-control" />
+            <span class="text-danger" asp-validation-for="OfflineStatus"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

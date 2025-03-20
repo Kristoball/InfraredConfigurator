@@ -1,0 +1,18 @@
+@using InfraredConfigurator.Entities
+@model Domain
+
+<div class="content shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+    <h1>Edit domain</h1>
+    <form asp-action="EditSubmit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group pb-2">
+            <label asp-for="DomainString"></label>
+            <input asp-for="DomainString" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

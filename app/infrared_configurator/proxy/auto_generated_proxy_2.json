@@ -1,0 +1,1 @@
+{"domainName":"ob2.mc.andreas.eikenes.net","proxyTo":"10.0.0.1:25565","sendProxyProtocol":true,"disconnectMessage":"Goood bye!","offlineStatus":{"motd":"We are sorry {{username}}, the server is currently offline!"},"onlineStatus":{"motd":"Come join us {{username}}!"}}
