@@ -34,7 +34,7 @@ jobs:
         run: echo "$(git describe --tags)"
       # Set Tag version
       - name: Set env
-        run: echo "RELEASE_VERSION=$(git describe --tags)" >> $GITHUB_ENV
+        run: echo "RELEASE_VERSION=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}$(git describe --tags)" >> $GITHUB_ENV
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
@@ -78,7 +78,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
