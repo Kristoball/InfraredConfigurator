@@ -16,6 +16,7 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
+  RELEASE_VERSION: "latest "
 
 jobs:
   build:
@@ -31,6 +32,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set read
+        run: echo "$(git describe --tags)"
       # Set Tag version
       - name: Set env
         run: echo "RELEASE_VERSION=$(git describe --tags)" >> $GITHUB_ENV
